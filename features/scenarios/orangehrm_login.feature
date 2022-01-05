@@ -1,6 +1,6 @@
 Feature: OrangeHRM Login
 
-  Scenario: Logo presence on OrangeHRM homepage
+  Scenario: User successfully login
     Given launch chrome browser
     When open orange hrm homepage
     And enter username "admin" and password "admin123"
