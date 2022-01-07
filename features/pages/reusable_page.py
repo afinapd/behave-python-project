@@ -5,7 +5,7 @@ from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as ec
 from selenium.common.exceptions import NoSuchElementException, TimeoutException
-from features.helper.config import config
+from helper.config import config
 from features.pages.base_page import basePage
 
 class NoSuchActionExist(Exception):
@@ -56,7 +56,7 @@ class ReusablePage:
 
     def get_element_text(self, locator):
         if not self.element_exists(locator):
-            raise NoSuchElementException("Could not find {locator.selector}")
+            raise NoSuchElementException("Could not find {locators.selector}")
         return self.driver.find_element(locator.l_type, locator.selector).text
 
     def get_dynamic_text_from_element(self, locator, text):

@@ -6,3 +6,4 @@ Feature: OrangeHRM Login
     And enter username "admin" and password "admin123"
     And click on login button
     Then user must successfully login to the dashboard page
+    And close browser

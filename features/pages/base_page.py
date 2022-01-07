@@ -1,6 +1,6 @@
 import os
 import shutil
-from features.helper.config import config
+from helper.config import config
 # from allure_commons._allure import attach
 # from allure_commons.types import AttachmentType
 import datetime
@@ -20,34 +20,26 @@ class BasePage(object):
 
     def __init__(self):
         if config.browser == "chrome":
-         #   chromedriver_autoinstaller.install()
             chrome_options = webdriver.ChromeOptions()
             prefs = {"profile.default_content_setting_values.notifications": 2}
             chrome_options.add_argument('--ignore-certificate-errors')
             chrome_options.add_argument('--ignore-ssl-errors')
             chrome_options.add_experimental_option("prefs", prefs)
-            PROXY = settings.proxy
-            chrome_options.add_argument('--proxy-server=%s' % PROXY)
-            self.driver = webdriver.Chrome(executable_path=os.getcwd()+"/library/chromedriver.exe", chrome_options=chrome_options)
-            # self.driver = webdriver.Chrome(ChromeDriverManager().install(),chrome_options=chrome_options)
-            # driver_logs = driver.get_log("driver")
-            # browser_logs = driver.get_log("browser")
+            self.driver = webdriver.Chrome(executable_path=os.getcwd() + r'\library\chromedriver.exe', chrome_options=chrome_options)
             self.driver.maximize_window()
-            self.driver.implicitly_wait(settings.driver_timeout)
+            self.driver.implicitly_wait(config.driver_timeout)
         else:
             raise BasePage.SeleniumDriverNotFound(
-                {settings.browser} +" is not currently supported")
+                {config.browser} +" is not currently supported")
 
     def get_driver(self):
         return self.driver
 
     def stop_instance(self):
         self.driver.quit()
-        instance = None
 
     def close_browser(self):
         self.driver.close()
-        instance = None
 
     def clear_cookies(self):
         self.driver.delete_all_cookies()
