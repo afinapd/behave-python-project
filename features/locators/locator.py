@@ -15,3 +15,15 @@ class LocatorLoginPage:
 
 class LocatorDashboardPage:
     DashboardMenu = Locator(By.ID, "menu_dashboard_index")
+    AssignLeaveMenu = Locator(By.XPATH, "//span[contains(.,'Assign Leave')]")
+
+class LocatorAssignLeavePage:
+    EmployeeNameTextfield = Locator(By.ID, "assignleave_txtEmployee_empName")
+    LeaveTypeDropdown = Locator(By.ID, "assignleave_txtLeaveType")
+    FromDateTextfield = Locator(By.ID, "assignleave_txtFromDate")
+    ToDateTextfield = Locator(By.ID, "assignleave_txtToDate")
+    PartialDaysDropdown = Locator(By.ID, "assignleave_partialDays")
+    CommentTextfield = Locator(By.ID, "assignleave_txtComment")
+    AssignButton = Locator(By.ID, "assignBtn")
+    ConfirmOkButton = Locator(By.ID, "confirmOkButton")
+    MessageText = Locator(By.CSS_SELECTOR, ".message")

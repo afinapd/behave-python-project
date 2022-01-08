@@ -1,9 +1,6 @@
-import os
-
 from behave import *
 
-from features.pages.base_page import basePage
-from helper.config import config
+from features.core.base_page import basePage
 
 
 @given('launch chrome browser')

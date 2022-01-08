@@ -1,4 +1,4 @@
-from features.pages.reusable_page import ReusablePage
+from features.core.reusable_page import ReusablePage
 from features.locators.locator import LocatorDashboardPage
 
 class DashboardPage(ReusablePage):
@@ -15,5 +15,8 @@ class DashboardPage(ReusablePage):
 
     def verifyDashboard(self):
         super().element_exists(LocatorDashboardPage.DashboardMenu)
+
+    def clickAssignLeaveMenu(self):
+        super().perform_action_on_element(LocatorDashboardPage.AssignLeaveMenu, "click")
 
 dashboardPage = DashboardPage.get_instance()

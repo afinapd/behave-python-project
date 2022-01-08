@@ -1,4 +1,4 @@
-from features.pages.reusable_page import ReusablePage
+from features.core.reusable_page import ReusablePage
 from features.locators.locator import LocatorLoginPage
 
 class LoginPage(ReusablePage):
@@ -14,10 +14,10 @@ class LoginPage(ReusablePage):
         super().__init__()
 
     def inputUserPassword(self, username, password):
-        super().perform_action_on_element(LocatorLoginPage.UserName, "Type", username)
-        super().perform_action_on_element(LocatorLoginPage.Password, "Type", password)
+        super().perform_action_on_element(LocatorLoginPage.UserName, "type", username)
+        super().perform_action_on_element(LocatorLoginPage.Password, "type", password)
 
-    def clickButtonLogin(self):
-        super().perform_action_on_element(LocatorLoginPage.LoginButton, "Click")
+    def clickLoginButton(self):
+        super().perform_action_on_element(LocatorLoginPage.LoginButton, "click")
 
 loginPage = LoginPage.get_instance()
